@@ -12,7 +12,6 @@ int main()
 	int a[100][100];
 	taoMaTran(a, n);
 	inMaTran(a, n, n);
-	printf("\n\n%d ", DEG(a, n, 3));
 }
 void taoMaTran(int a[][100], int &n)
 {
