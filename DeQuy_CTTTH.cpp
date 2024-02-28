@@ -28,7 +28,7 @@ int main()
 float A1(int n)
 {
 	if(n==0) return 1.0;
-	else return A1(n-1)*1.5;
+	else return (3*A1(n-1))/2;
 }
 
 float A2(int n)
