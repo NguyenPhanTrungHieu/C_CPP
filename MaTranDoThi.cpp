@@ -4,6 +4,7 @@
 void taoMaTran(int a[][100], int &n);
 void inMaTran(int a[][100], int n, int m);
 int DEG(int a[][100], int n, int v);
+void DFS();
 
 int main()
 {
@@ -54,4 +55,8 @@ int DEG(int a[][100], int n, int v)
 			sum++;
 	}
 	return sum;
+}
+
+void DFS()
+{
 }
