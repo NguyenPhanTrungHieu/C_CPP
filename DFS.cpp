@@ -4,14 +4,14 @@ using namespace std;
 
 void taoMaTran(int array[][100], int &n);
 void inMaTran(int array[][100], int n, int m);
-void BFS(int array[][100], int n, int u);
-
+void DFS(int array[][100], int n, int u);
+int chuaXet[13] = {1,1,1,1,1,1,1,1,1,1,1,1,1};
 int main()
 {
     int array[100][100], n;
     taoMaTran(array, n);
     inMaTran(array, n, n);
-    BFS(array, n, 0);
+    DFS(array, n, 0);
 }
 
 void taoMaTran(int array[][100], int &n)
@@ -48,28 +48,16 @@ void inMaTran(int array[][100], int n, int m)
     }
 }
 
-void BFS(int array[][100], int n, int u)
+void DFS(int array[][100], int n, int u)
 {
-    int dem = 0;
-    queue<int> q;
-    int chuaXet[n] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    q.push(u);
+    cout<<u+1<<" ";
     chuaXet[u] = 0;
-    while (!q.empty())
+    for (int v = 0; v < n; v++)
     {
-        int p = q.front();
-        cout << p + 1 << " "; dem++;
-        q.pop();
-        for (int v = 0; v < n; v++)
+        if ((array[u][v] == 1) && (chuaXet[v] == 1))
         {
-            if (array[p][v] == 1 && chuaXet[v] == 1) //Duyet cac dinh ke voi p va chua duoc xet
-            {
-                q.push(v);
-                chuaXet[v] = 0;
-            }
+            DFS(array, n, v);
         }
     }
-    if(dem==n) cout<<endl<<"Do thi lien thong";
-    else cout<<endl<<"Do thi khong lien thong";
 }
 
