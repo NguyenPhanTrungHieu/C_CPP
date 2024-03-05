@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> //test
 
 void IN(int A[], int nA);
 int CON(int A[], int nA, int B[], int nB);
