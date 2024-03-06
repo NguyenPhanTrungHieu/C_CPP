@@ -4,14 +4,17 @@ using namespace std;
 
 void taoMaTran(int array[][100], int &n);
 void inMaTran(int array[][100], int n, int m);
-void DFS(int array[][100], int n, int u);
-int chuaXet[13] = {1,1,1,1,1,1,1,1,1,1,1,1,1};
+// void DFS(int array[][100], int n, int u);
+// int chuaXet[13] = {1,1,1,1,1,1,1,1,1,1,1,1,1};
+int demBacLe(int array[][100], int n);
+int loaiDoThi(int array[][100], int n);
 int main()
 {
     int array[100][100], n;
     taoMaTran(array, n);
     inMaTran(array, n, n);
-    DFS(array, n, 0);
+    cout<<"So bac le cua ma tran la: "<<demBacLe(array,n);
+    // DFS(array, n, 0);
 }
 
 void taoMaTran(int array[][100], int &n)
@@ -48,16 +51,22 @@ void inMaTran(int array[][100], int n, int m)
     }
 }
 
-void DFS(int array[][100], int n, int u)
+int demBacLe(int array[][100], int n)
 {
-    cout<<u+1<<" ";
-    chuaXet[u] = 0;
-    for (int v = 0; v < n; v++)
+    int count = 0;
+    for(int i=0;i<n;i++)
     {
-        if ((array[u][v] == 1) && (chuaXet[v] == 1))
+        int tempCount = 0;
+        for(int j=0;j<n;j++)
         {
-            DFS(array, n, v);
+            if(array[i][j] == 1) tempCount++;
         }
+        if(tempCount%2==1) count++;
     }
+    return count;
 }
 
+int loaiDoThi(int array[][100], int n)
+{
+    int Stack[100], CE[100];
+}
